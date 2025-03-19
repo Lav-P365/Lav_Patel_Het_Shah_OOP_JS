@@ -1,11 +1,10 @@
 {
   "name": "lav_patel_het_shah_oop_js",
   "version": "1.0.0",
-  "description": "This project demonstrates Object-Oriented Programming (OOP) principles in JavaScript while utilizing ES6 Modules and Parcel.js for module bundling. The project follows best practices in structuring JavaScript code with classes, inheritance, and modular design.",
-  "main": "index.js",
+  "description": "This project demonstrates Object-Oriented Programming (OOP) principles in JavaScript while utilizing ES6 Modules and Parcel.js for module bundling.",
   "scripts": {
-  "dev": "parcel index.html",
-  "build": "parcel build index.html"
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
