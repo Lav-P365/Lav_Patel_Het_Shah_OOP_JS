@@ -61,4 +61,123 @@ body {
 .teams img:hover {
   transform: scale(1.1);
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden auto;
+}
+
+.team-container {
+  text-align: center;
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+  margin: 50px auto;
+  padding: 50px 20px;
+  top: 0;
+  left: 0;
+}
+
+.team-name {
+  color: #000;
+  margin-bottom: 20px;
+  font-size: 3rem;
+}
+
+.team-background {
+  text-align: center;
+  background-position: center;
+  background-size: cover;
+  padding: 50px 20px;
+  position: relative;
+}
+
+.team-captain {
+  color: #000;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+}
+
+.player-list {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0;
+  list-style-type: none;
+  display: grid;
+}
+
+.player-card {
+  text-align: center;
+  background-color: #00000080;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1.2rem;
+  transition: transform .3s;
+}
+
+.player-card:hover {
+  transform: scale(1.05);
+}
+
+.player-image {
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 8px;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 10px;
+}
+
+.player-info {
+  color: #fff;
+}
+
+.player-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.player-role, .player-country, .player-age {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.back-button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+@media (width <= 768px) {
+  .team-background {
+    padding: 30px 15px;
+  }
+
+  .team-name {
+    font-size: 2.5rem;
+  }
+
+  .team-captain {
+    font-size: 1.2rem;
+  }
+
+  .player-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .player-card {
+    width: 90%;
+  }
+}
 /*# sourceMappingURL=Lav_Patel_Het_Shah_OOP_JS.34df27b5.css.map */
