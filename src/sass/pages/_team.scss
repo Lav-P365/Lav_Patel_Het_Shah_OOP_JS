@@ -1,0 +1,123 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.team-container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center; 
+    margin: 50px auto;
+    padding: 50px 20px;
+    scroll-behavior: smooth;
+}
+
+
+.team-name {
+    font-size: 3rem;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.team-background {
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.team-captain {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.player-list {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 0;
+}
+
+.player-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.player-card:hover {
+    transform: scale(1.05);
+}
+
+.player-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.player-info {
+    color: white;
+}
+
+.player-name {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.player-role,
+.player-country,
+.player-age {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* Style for the back button */
+.back-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+
+@media (max-width: 768px) {
+    .team-background {
+        padding: 30px 15px;
+    }
+
+    .team-name {
+        font-size: 2.5rem;
+    }
+
+    .team-captain {
+        font-size: 1.2rem;
+    }
+
+    .player-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .player-card {
+        width: 90%;
+    }
+}

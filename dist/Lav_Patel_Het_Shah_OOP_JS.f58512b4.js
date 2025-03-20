@@ -662,33 +662,33 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"eQpRv":[function(require,module,exports,__globalThis) {
-// team.js
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Team", ()=>Team);
 class Team {
-    constructor(name, logo, players){
+    constructor(name, logo, captain, players, backgroundImage, visualImage){
         this.name = name;
         this.logo = logo;
-        this.players = players;
+        this.captain = captain;
+        this.players = players; // Array of players
+        this.backgroundImage = backgroundImage;
+        this.visualImage = visualImage; // New property to store the visual image
     }
     displayTeamDetails() {
-        const teamInfoContainer = document.getElementById('team-info');
-        teamInfoContainer.innerHTML = `
+        // Method to display team details with visual image
+        const teamInfo = `
             <h1>${this.name}</h1>
-            <img src="${this.logo}" alt="${this.name} logo" class="team-logo" />
+            <div class="team-background" style="background-image: url('${this.backgroundImage}')">
+                <img src="${this.visualImage}" alt="${this.name} visual" class="team-visual" />
+                <h2>Captain: ${this.captain}</h2>
+                <ul>
+                    ${this.players.map((player)=>`
+                        <li>${player.name} - ${player.role} - ${player.country} - Age: ${player.age}</li>
+                    `).join('')}
+                </ul>
+            </div>
         `;
-        const playersList = this.players.map((player)=>{
-            return `
-                <div class="player">
-                    <p><strong>Role:</strong> ${player.role}</p>
-                    <p><strong>Name:</strong> ${player.name}</p>
-                    <p><strong>Country:</strong> ${player.country}</p>
-                    <p><strong>Age:</strong> ${player.age}</p>
-                </div>
-            `;
-        }).join('');
-        teamInfoContainer.innerHTML += playersList;
+        document.body.innerHTML = teamInfo; // This is where you can display team details dynamically.
     }
 }
 
