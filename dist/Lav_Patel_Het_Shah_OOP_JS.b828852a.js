@@ -662,47 +662,40 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"lhpGb":[function(require,module,exports,__globalThis) {
-// main.js
 var _cskTeamJs = require("./cskTeam.js");
 var _kkrTeamJs = require("./kkrTeam.js");
+var _gtTeamJs = require("./gtTeam.js");
+var _lsgTeamJs = require("./lsgTeam.js");
+var _rrTeamJs = require("./rrTeam.js");
 var _miTeamJs = require("./miTeam.js");
 var _rcbTeamJs = require("./rcbTeam.js");
 var _pbksTeamJs = require("./pbksTeam.js");
 var _dcTeamJs = require("./dcTeam.js");
+var _srhTeamJs = require("./srhTeam.js");
+const teamsMap = {
+    'Chennai Super Kings': (0, _cskTeamJs.CSK),
+    'Kolkata Knight Riders': (0, _kkrTeamJs.KKR),
+    'Mumbai Indians': (0, _miTeamJs.MI),
+    'Royal Challengers Bangalore': (0, _rcbTeamJs.RCB),
+    'Punjab Kings': (0, _pbksTeamJs.PBKS),
+    'Delhi Capitals': (0, _dcTeamJs.DC),
+    'Sunrisers Hyderabad': (0, _srhTeamJs.SRH),
+    'Rajasthan Royals': (0, _rrTeamJs.RR),
+    'Gujarat Titans': (0, _gtTeamJs.GT),
+    'Lucknow Super Giants': (0, _lsgTeamJs.LSG)
+};
 const teamImages = document.querySelectorAll('.teams img');
 teamImages.forEach((image)=>{
     image.addEventListener('click', ()=>{
-        let team;
-        // Check the alt text or a unique identifier for each team
-        switch(image.alt){
-            case 'Chennai Super Kings':
-                team = new (0, _cskTeamJs.CSK)();
-                break;
-            case 'Kolkata Knight Riders':
-                team = new (0, _kkrTeamJs.KKR)();
-                break;
-            case 'Mumbai Indians':
-                team = new (0, _miTeamJs.MI)();
-                break;
-            case 'Royal Challengers Bangalore':
-                team = new (0, _rcbTeamJs.RCB)();
-                break;
-            case 'Punjab Kings':
-                team = new (0, _pbksTeamJs.PBKS)();
-                break;
-            case 'Delhi Capitals':
-                team = new (0, _dcTeamJs.DC)();
-                break;
-            default:
-                console.log('Team not found');
-                return;
-        }
-        // Call a method to display team details (ensure this method exists in the Team class)
-        team.displayTeamDetails();
+        const teamClass = teamsMap[image.alt];
+        if (teamClass) {
+            const team = new teamClass();
+            team.displayTeamDetails();
+        } else console.log('Team not found');
     });
 });
 
-},{"./cskTeam.js":"2P1b1","./kkrTeam.js":"bbsBT","./miTeam.js":"bbBQr","./rcbTeam.js":"7znpZ","./pbksTeam.js":"7NvmE","./dcTeam.js":"awUeN"}],"2P1b1":[function(require,module,exports,__globalThis) {
+},{"./cskTeam.js":"2P1b1","./kkrTeam.js":"bbsBT","./miTeam.js":"bbBQr","./rcbTeam.js":"7znpZ","./pbksTeam.js":"7NvmE","./dcTeam.js":"awUeN","./gtTeam.js":"ixFnz","./lsgTeam.js":"5CCCm","./rrTeam.js":"2WEnT","./srhTeam.js":"gV2DV"}],"2P1b1":[function(require,module,exports,__globalThis) {
 // cskTeam.js
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -710,104 +703,129 @@ parcelHelpers.export(exports, "CSK", ()=>CSK);
 var _teamJs = require("./team.js");
 class CSK extends (0, _teamJs.Team) {
     constructor(){
-        super('Chennai Super Kings', 'images/csk.png', 'Ruturaj Gaikwad', [
+        super('../images/bg/csk-bg.png', 'Chennai Super Kings', 'Ruturaj Gaikwad', [
             {
+                thumb: '../images/csk/rg.png',
                 name: 'Ruturaj Gaikwad',
                 role: 'Captain/Batsman',
                 country: 'India',
                 age: 28
             },
             {
+                thumb: '../images/csk/Devon-conway.png',
                 name: 'Devon Conway',
                 role: 'Batsman',
                 country: 'New Zealand',
                 age: 32
             },
             {
+                thumb: '../images/csk/ms.png',
                 name: 'MS Dhoni',
                 role: 'Batsman',
                 country: 'India',
                 age: 40
             },
             {
+                thumb: '../images/csk/rachin.png',
                 name: 'Rachin Ravindra',
                 role: 'Batsman',
                 country: 'New Zealand',
                 age: 31
             },
             {
+                thumb: '../images/csk/khaleel.png',
                 name: 'Khaleel Ahmed',
                 role: 'Bowler',
                 country: 'India',
                 age: 28
             },
             {
+                thumb: '../images/csk/rana.png',
                 name: 'Pathirana',
                 role: 'Bowler',
                 country: 'Sri Lanka',
                 age: 24
             },
             {
+                thumb: '../images/csk/mukesh.png',
                 name: 'Mukesh Choudhary',
                 role: 'Bowler',
                 country: 'India',
                 age: 24
             },
             {
+                thumb: '../images/csk/bapu.png',
                 name: 'Ravindra Jadeja',
                 role: 'All-Rounder',
                 country: 'India',
                 age: 36
             },
             {
+                thumb: '../images/csk/sam.png',
                 name: 'Sam Curran',
                 role: 'All-Rounder',
                 country: 'England',
                 age: 24
             },
             {
+                thumb: '../images/csk/dube.png',
                 name: 'Shivam Dube',
                 role: 'All-Rounder',
                 country: 'India',
                 age: 27
             },
             {
+                thumb: '../images/csk/ashwin.png',
                 name: 'Ashwin',
                 role: 'All-Rounder',
                 country: 'India',
                 age: 37
             }
-        ], 'images/csk-background.jpg');
+        ]);
     }
 }
 
 },{"./team.js":"eQpRv","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"eQpRv":[function(require,module,exports,__globalThis) {
-// team.js
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Team", ()=>Team);
 class Team {
-    constructor(name, logo, captain, players, backgroundImage){
-        this.name = name;
-        this.logo = logo;
-        this.captain = captain;
-        this.players = players; // Array of players
+    constructor(backgroundImage, name, captain, players){
         this.backgroundImage = backgroundImage;
+        this.name = name;
+        this.captain = captain;
+        this.players = players;
     }
     displayTeamDetails() {
-        // Method to display team details
+        console.log('Background Image:', this.backgroundImage);
         const teamInfo = `
-            <h1>${this.name}</h1>
-            <div class="team-background" style="background-image: url('${this.backgroundImage}')">
-                <h2>Captain: ${this.captain}</h2>
-                <ul>
-                    ${this.players.map((player)=>`
-                        <li>${player.name} - ${player.role} - ${player.country} - Age: ${player.age}</li>
-                    `).join('')}
-                </ul>
+            <div class="team-container">
+                <h1 class="team-name">${this.name}</h1>
+                <div class="team-background" style="background-image: url('${this.backgroundImage}')">
+                    <h2 class="team-captain">Captain: ${this.captain}</h2>
+                    <ul class="player-list">
+                        ${this.players.map((player)=>`
+                            <li class="player-card">
+                                <img src="${player.thumb}" alt="${player.name}" class="player-image"/>
+                                <div class="player-info">
+                                    <p class="player-name">${player.name}</p>
+                                    <p class="player-role">${player.role}</p>
+                                    <p class="player-country">${player.country}</p>
+                                    <p class="player-age">Age: ${player.age}</p>
+                                </div>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <!-- Back to Home Button -->
+                    <button class="back-button">Back to Home</button>
+                </div>
             </div>
         `;
-        document.body.innerHTML = teamInfo; // This is where you can display team details dynamically.
+        document.body.innerHTML = teamInfo;
+        const backButton = document.querySelector('.back-button');
+        if (backButton) backButton.addEventListener('click', ()=>{
+            window.location.href = 'index.html';
+        });
     }
 }
 
@@ -849,74 +867,85 @@ parcelHelpers.export(exports, "KKR", ()=>KKR);
 var _teamJs = require("./team.js");
 class KKR extends (0, _teamJs.Team) {
     constructor(){
-        super('Kolkata Knight Riders', 'images/kkr.png', 'Ajinkya Rahane', [
+        super('../images/bg/kkr-bg.png', 'Kolkata Knight Riders', 'Ajinkya Rahane', [
             {
+                thumb: '../images/kkr/ar.png',
                 name: 'Ajinkya Rahane',
                 role: 'Captain/Batsman',
                 country: 'India',
                 age: 33
             },
             {
+                thumb: '../images/kkr/cock.png',
                 name: 'Quinton de Kock',
                 role: 'Batsman',
                 country: 'South Africa',
                 age: 36
             },
             {
+                thumb: '../images/kkr/manish.png',
                 name: 'Manish Pandey',
                 role: 'Batsman',
                 country: 'India',
                 age: 34
             },
             {
+                thumb: '../images/kkr/iyer.png',
                 name: 'Venkatesh Iyer',
                 role: 'Batsman',
                 country: 'India',
                 age: 26
             },
             {
+                thumb: '../images/kkr/andre.png',
                 name: 'Andre Russell',
                 role: 'All Rounder',
                 country: 'West Indies',
                 age: 34
             },
             {
+                thumb: '../images/kkr/sunil.png',
                 name: 'Sunil Narine',
                 role: 'All Rounder',
                 country: 'West Indies',
                 age: 35
             },
             {
+                thumb: '../images/kkr/rinku.png',
                 name: 'Rinku Singh',
                 role: 'All Rounder',
                 country: 'India',
                 age: 24
             },
             {
+                thumb: '../images/kkr/ali.png',
                 name: 'Moeen Ali',
                 role: 'All Rounder',
                 country: 'England',
                 age: 33
             },
             {
+                thumb: '../images/kkr/varun.png',
                 name: 'Varun',
                 role: 'Bowler',
                 country: 'India',
                 age: 28
             },
             {
+                thumb: '../images/kkr/rana.png',
                 name: 'Harshit Rana',
                 role: 'Bowler',
                 country: 'India',
                 age: 26
             },
             {
+                thumb: '../images/kkr/anrich.png',
                 name: 'Anrich Nortje',
                 role: 'Bowler',
                 country: 'South Africa',
                 age: 31
             }
-        ], 'images/kkr-background.jpg');
+        ]);
     }
 }
 
@@ -928,74 +957,85 @@ parcelHelpers.export(exports, "MI", ()=>MI);
 var _teamJs = require("./team.js");
 class MI extends (0, _teamJs.Team) {
     constructor(){
-        super('Mumbai Indians', 'images/mi.png', 'Hardik Pandya', [
+        super('../images/bg/mi-bg.png', 'Mumbai Indians', 'Hardik Pandya', [
             {
+                thumb: '../images/mi/hr.png',
                 name: 'Hardik Pandya',
                 role: 'Captain/All Rounder',
                 country: 'India',
                 age: 30
             },
             {
+                thumb: '../images/mi/rs.png',
                 name: 'Rohit Sharma',
                 role: 'Batsman',
                 country: 'India',
                 age: 37
             },
             {
+                thumb: '../images/mi/tv.png',
                 name: 'Tilak Verma',
                 role: 'Batsman',
                 country: 'India',
                 age: 26
             },
             {
+                thumb: '../images/mi/sy.png',
                 name: 'Suryakumar Yadav',
                 role: 'Batsman',
                 country: 'India',
                 age: 33
             },
             {
+                thumb: '../images/mi/wj.png',
                 name: 'Will Jacks',
                 role: 'Batsman',
                 country: 'England',
                 age: 28
             },
             {
+                thumb: '../images/mi/rr.png',
                 name: 'Ryan Rickleton',
                 role: 'Batsman',
                 country: 'South Africa',
                 age: 28
             },
             {
+                thumb: '../images/mi/san.png',
                 name: 'Mitchell Santner',
                 role: 'All Rounder',
                 country: 'New Zealand',
                 age: 32
             },
             {
+                thumb: '../images/mi/deepak.png',
                 name: 'Deepak Chahar',
                 role: 'All Rounder',
                 country: 'India',
                 age: 28
             },
             {
+                thumb: '../images/mi/jas.png',
                 name: 'Jasprit Bumrah',
                 role: 'Bowler',
                 country: 'India',
                 age: 29
             },
             {
+                thumb: '../images/mi/tb.png',
                 name: 'Trent Boult',
                 role: 'Bowler',
                 country: 'New Zealand',
                 age: 33
             },
             {
+                thumb: '../images/mi/karn.png',
                 name: 'Karn Sharma',
                 role: 'Bowler',
                 country: 'India',
                 age: 31
             }
-        ], 'images/mi-background.jpg');
+        ]);
     }
 }
 
@@ -1007,74 +1047,85 @@ parcelHelpers.export(exports, "RCB", ()=>RCB);
 var _teamJs = require("./team.js");
 class RCB extends (0, _teamJs.Team) {
     constructor(){
-        super('Royal Challengers Bangalore', 'images/rcb.png', 'Rajat Patidar', [
+        super('../images/bg/rcb-bg.png', 'Royal Challengers Bangalore', 'Rajat Patidar', [
             {
+                thumb: '../images/rcb/rp.png',
                 name: 'Rajat Patidar',
                 role: 'Captain/Batsman',
                 country: 'India',
                 age: 26
             },
             {
+                thumb: '../images/rcb/vk.png',
                 name: 'Virat Kohli',
                 role: 'Batsman',
                 country: 'India',
                 age: 36
             },
             {
+                thumb: '../images/rcb/dp.png',
                 name: 'Devdutt Padikkal',
                 role: 'Batsman',
                 country: 'India',
                 age: 26
             },
             {
+                thumb: '../images/rcb/ps.png',
                 name: 'Phil Salt',
                 role: 'Batsman',
                 country: 'England',
                 age: 28
             },
             {
+                thumb: '../images/rcb/js.png',
                 name: 'Jitesh Sharma',
                 role: 'Batsman',
                 country: 'India',
                 age: 28
             },
             {
+                thumb: '../images/rcb/td.png',
                 name: 'Tim David',
                 role: 'All Rounder',
                 country: 'Australia',
                 age: 28
             },
             {
+                thumb: '../images/rcb/ll.png',
                 name: 'Liam Livingstone',
                 role: 'All Rounder',
                 country: 'England',
                 age: 29
             },
             {
+                thumb: '../images/rcb/kp.png',
                 name: 'Krunal Pandya',
                 role: 'All Rounder',
                 country: 'India',
                 age: 30
             },
             {
+                thumb: '../images/rcb/jh.png',
                 name: 'Josh Hazelwood',
                 role: 'Bowler',
                 country: 'Australia',
                 age: 30
             },
             {
+                thumb: '../images/rcb/yd.png',
                 name: 'Yash Dayal',
                 role: 'Bowler',
                 country: 'India',
                 age: 27
             },
             {
+                thumb: '../images/rcb/bhuvi.png',
                 name: 'Bhuvi',
                 role: 'Bowler',
                 country: 'India',
                 age: 32
             }
-        ], 'images/rcb-background.jpg');
+        ]);
     }
 }
 
@@ -1086,74 +1137,85 @@ parcelHelpers.export(exports, "PBKS", ()=>PBKS);
 var _teamJs = require("./team.js");
 class PBKS extends (0, _teamJs.Team) {
     constructor(){
-        super('Punjab Kings', 'images/pbks.png', 'Shreyas Iyer', [
+        super('../images/bg/pbks-bg.png', 'Punjab Kings', 'Shreyas Iyer', [
             {
+                thumb: '../images/pbks/si.png',
                 name: 'Shreyas Iyer',
                 role: 'Captain/Batsman',
                 country: 'India',
                 age: 28
             },
             {
+                thumb: '../images/pbks/ji.png',
                 name: 'Josh Inglis',
                 role: 'Batsman',
                 country: 'Australia',
                 age: 29
             },
             {
+                thumb: '../images/pbks/ps.png',
                 name: 'Prabhsimran Singh',
                 role: 'Batsman',
                 country: 'India',
                 age: 26
             },
             {
+                thumb: '../images/pbks/nw.png',
                 name: 'Nehal Wadhera',
                 role: 'Batsman',
                 country: 'India',
                 age: 24
             },
             {
+                thumb: '../images/pbks/ms.png',
                 name: 'Marcus Stoinis',
                 role: 'All-Rounder',
                 country: 'Australia',
                 age: 34
             },
             {
+                thumb: '../images/pbks/gm.png',
                 name: 'Glenn Maxwell',
                 role: 'All-Rounder',
                 country: 'Australia',
                 age: 34
             },
             {
+                thumb: '../images/pbks/mj.png',
                 name: 'Marco Jansen',
                 role: 'All-Rounder',
                 country: 'South Africa',
                 age: 29
             },
             {
+                thumb: '../images/pbks/yc.png',
                 name: 'Yuzvendra Chahal',
                 role: 'Bowler',
                 country: 'India',
                 age: 30
             },
             {
+                thumb: '../images/pbks/hb.png',
                 name: 'Harpreet Brar',
                 role: 'Bowler',
                 country: 'India',
                 age: 25
             },
             {
+                thumb: '../images/pbks/lf.png',
                 name: 'Lockie Ferguson',
                 role: 'Bowler',
                 country: 'New Zealand',
                 age: 32
             },
             {
+                thumb: '../images/pbks/as.png',
                 name: 'Arshdeep Singh',
                 role: 'Bowler',
                 country: 'India',
                 age: 26
             }
-        ], 'images/pbks-background.jpg');
+        ]);
     }
 }
 
@@ -1165,74 +1227,445 @@ parcelHelpers.export(exports, "DC", ()=>DC);
 var _teamJs = require("./team.js");
 class DC extends (0, _teamJs.Team) {
     constructor(){
-        super('Delhi Capitals', 'images/dc.png', 'Axar Patel', [
+        super('../images/bg/dc-bg.png', 'Delhi Capitals', 'Axar Patel', [
             {
+                thumb: '../images/dc/patel.png',
                 name: 'Axar Patel',
                 role: 'Captain/All Rounder',
                 country: 'India',
                 age: 28
             },
             {
+                thumb: '../images/dc/faf.png',
                 name: 'Faf du Plessis',
                 role: 'Batsman',
                 country: 'South Africa',
                 age: 35
             },
             {
+                thumb: '../images/dc/jake.png',
                 name: 'Jake',
                 role: 'Batsman',
                 country: 'Australia',
                 age: 23
             },
             {
+                thumb: '../images/dc/nair.png',
                 name: 'Karun Nair',
                 role: 'Batsman',
                 country: 'India',
                 age: 35
             },
             {
+                thumb: '../images/dc/kl.png',
                 name: 'KL Rahul',
                 role: 'Batsman',
                 country: 'India',
                 age: 29
             },
             {
+                thumb: '../images/dc/stubbs.png',
                 name: 'Tristan Stubbs',
                 role: 'Batsman',
                 country: 'Australia',
                 age: 27
             },
             {
+                thumb: '../images/dc/kumar.png',
                 name: 'Mukesh Kumar',
                 role: 'Bowler',
                 country: 'India',
                 age: 31
             },
             {
+                thumb: '../images/dc/yadav.png',
                 name: 'Kuldeep Yadav',
                 role: 'Bowler',
                 country: 'India',
                 age: 27
             },
             {
+                thumb: '../images/dc/starc.png',
                 name: 'Starc',
                 role: 'Bowler',
                 country: 'Australia',
                 age: 34
             },
             {
+                thumb: '../images/dc/raj.png',
                 name: 'Natarajan',
                 role: 'Bowler',
                 country: 'India',
                 age: 30
             },
             {
+                thumb: '../images/dc/mohit.png',
                 name: 'Mohit Kumar',
                 role: 'Bowler',
                 country: 'India',
                 age: 35
             }
-        ], 'images/dc-background.jpg');
+        ]);
+    }
+}
+
+},{"./team.js":"eQpRv","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ixFnz":[function(require,module,exports,__globalThis) {
+// gtTeam.js
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "GT", ()=>GT);
+var _teamJs = require("./team.js");
+class GT extends (0, _teamJs.Team) {
+    constructor(){
+        super('../images/bg/gt-bg.png', 'Gujarat Titans', 'Shubman Gill', [
+            {
+                thumb: '../images/gt/gill.png',
+                name: 'Shubman Gill',
+                role: 'Captain / Batsman',
+                country: 'India',
+                age: 24
+            },
+            {
+                thumb: '../images/gt/rawat.png',
+                name: 'Anuj Rawat',
+                role: 'Batsman',
+                country: 'India',
+                age: 25
+            },
+            {
+                thumb: '../images/gt/joss.png',
+                name: 'Jos Buttler',
+                role: 'Batsman',
+                country: 'England',
+                age: 32
+            },
+            {
+                thumb: '../images/gt/khan.png',
+                name: 'Rashid Khan',
+                role: 'All Rounder',
+                country: 'Afghanistan',
+                age: 24
+            },
+            {
+                thumb: '../images/gt/rahul.png',
+                name: 'Rahul Tewatia',
+                role: 'All Rounder',
+                country: 'India',
+                age: 29
+            },
+            {
+                thumb: '../images/gt/sunder.png',
+                name: 'Washington Sundar',
+                role: 'All Rounder',
+                country: 'India',
+                age: 28
+            },
+            {
+                thumb: '../images/gt/glenn.png',
+                name: 'Glenn Phillips',
+                role: 'All Rounder',
+                country: 'New Zealand',
+                age: 30
+            },
+            {
+                thumb: '../images/gt/rabada.png',
+                name: 'Kagiso Rabada',
+                role: 'Bowler',
+                country: 'South Africa',
+                age: 29
+            },
+            {
+                thumb: '../images/gt/ishant.png',
+                name: 'Ishant Sharma',
+                role: 'Bowler',
+                country: 'India',
+                age: 35
+            },
+            {
+                thumb: '../images/gt/pb.png',
+                name: 'Prasidh Krishna',
+                role: 'Bowler',
+                country: 'India',
+                age: 27
+            },
+            {
+                thumb: '../images/gt/siraj.png',
+                name: 'Mohammed Siraj',
+                role: 'Bowler',
+                country: 'India',
+                age: 28
+            }
+        ]);
+    }
+}
+
+},{"./team.js":"eQpRv","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5CCCm":[function(require,module,exports,__globalThis) {
+// lsgTeam.js
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "LSG", ()=>LSG);
+var _teamJs = require("./team.js");
+class LSG extends (0, _teamJs.Team) {
+    constructor(){
+        super('../images/bg/lsg-bg.png', 'Lucknow Super Giants', 'Rishabh Pant', [
+            {
+                thumb: '../images/lsg/pant.png',
+                name: 'Rishabh Pant',
+                role: 'Captain/Batsman',
+                country: 'India',
+                age: 28
+            },
+            {
+                thumb: '../images/lsg/aiden.png',
+                name: 'Aiden Markram',
+                role: 'Batsman',
+                country: 'India',
+                age: 32
+            },
+            {
+                thumb: '../images/lsg/david.png',
+                name: 'David Miller',
+                role: 'Batsman',
+                country: 'India',
+                age: 33
+            },
+            {
+                thumb: '../images/lsg/ayush.png',
+                name: 'Ayush Badoni',
+                role: 'Batsman',
+                country: 'India',
+                age: 21
+            },
+            {
+                thumb: '../images/lsg/pooran.png',
+                name: 'Nicholas Pooran',
+                role: 'Batsman',
+                country: 'West Indies',
+                age: 31
+            },
+            {
+                thumb: '../images/lsg/ravi.png',
+                name: 'Ravi Bishnoi',
+                role: 'Bowler',
+                country: 'India',
+                age: 25
+            },
+            {
+                thumb: '../images/lsg/khan.png',
+                name: 'Avesh Khan',
+                role: 'Bowler',
+                country: 'India',
+                age: 27
+            },
+            {
+                thumb: '../images/lsg/yadav.png',
+                name: 'Mayank Yadav',
+                role: 'Bowler',
+                country: 'India',
+                age: 25
+            },
+            {
+                thumb: '../images/lsg/marsh.png',
+                name: 'Mitchell Marsh',
+                role: 'All Rounder',
+                country: 'Australia',
+                age: 34
+            },
+            {
+                thumb: '../images/lsg/deep.png',
+                name: 'Akash Deep',
+                role: 'All Rounder',
+                country: 'India',
+                age: 32
+            },
+            {
+                thumb: '../images/lsg/ahmed.png',
+                name: 'Shabaz Ahmed',
+                role: 'All Rounder',
+                country: 'India',
+                age: 26
+            }
+        ]);
+    }
+}
+
+},{"./team.js":"eQpRv","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2WEnT":[function(require,module,exports,__globalThis) {
+// rrTeam.js
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "RR", ()=>RR);
+var _teamJs = require("./team.js");
+class RR extends (0, _teamJs.Team) {
+    constructor(){
+        super('../images/bg/rr-bg.png', 'Rajasthan Royals', 'Sanju Samson', [
+            {
+                thumb: '../images/rr/sanju.png',
+                name: 'Sanju Samson',
+                role: 'Captain/Batsman',
+                country: 'India',
+                age: 32
+            },
+            {
+                thumb: '../images/rr/dr.png',
+                name: 'Dhruv Jurel',
+                role: 'Batsman',
+                country: 'India',
+                age: 24
+            },
+            {
+                thumb: '../images/rr/sh.png',
+                name: 'Shimron Hetmyer',
+                role: 'Batsman',
+                country: 'West Indies',
+                age: 28
+            },
+            {
+                thumb: '../images/rr/nr.png',
+                name: 'Nitish Rana',
+                role: 'Batsman',
+                country: 'India',
+                age: 29
+            },
+            {
+                thumb: '../images/rr/rp.png',
+                name: 'Riyan Parag',
+                role: 'Batsman',
+                country: 'India',
+                age: 24
+            },
+            {
+                thumb: '../images/rr/yj.png',
+                name: 'Yashasvi Jaiswal',
+                role: 'Batsman',
+                country: 'India',
+                age: 22
+            },
+            {
+                thumb: '../images/rr/hs.png',
+                name: 'Hasaranga',
+                role: 'All Rounder',
+                country: 'Sri Lanka',
+                age: 27
+            },
+            {
+                thumb: '../images/rr/mah.png',
+                name: 'Maheesh',
+                role: 'Bowler',
+                country: 'Sri Lanka',
+                age: 28
+            },
+            {
+                thumb: '../images/rr/ja.png',
+                name: 'Jofra Archer',
+                role: 'Bowler',
+                country: 'England',
+                age: 32
+            },
+            {
+                thumb: '../images/rr/ts.png',
+                name: 'Tushar',
+                role: 'Bowler',
+                country: 'India',
+                age: 27
+            },
+            {
+                thumb: '../images/rr/ss.png',
+                name: 'Sandeep Sharma',
+                role: 'Bowler',
+                country: 'India',
+                age: 35
+            }
+        ]);
+    }
+}
+
+},{"./team.js":"eQpRv","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"gV2DV":[function(require,module,exports,__globalThis) {
+// srhTeam.js
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "SRH", ()=>SRH);
+var _teamJs = require("./team.js");
+class SRH extends (0, _teamJs.Team) {
+    constructor(){
+        super('../images/bg/srh-bg.png', 'Sunrisers Hyderabad', 'Pat Cummins', [
+            {
+                thumb: '../images/srh/pc.png',
+                name: 'Pat Cummins',
+                role: 'All Rounder / Captain',
+                country: 'Australia',
+                age: 34
+            },
+            {
+                thumb: '../images/srh/ik.png',
+                name: 'Ishan Kishan',
+                role: 'Batsman',
+                country: 'India',
+                age: 26
+            },
+            {
+                thumb: '../images/srh/th.png',
+                name: 'Travis Head',
+                role: 'Batsman',
+                country: 'Australia',
+                age: 29
+            },
+            {
+                thumb: '../images/srh/as.png',
+                name: 'Abhishek Sharma',
+                role: 'Batsman',
+                country: 'India',
+                age: 24
+            },
+            {
+                thumb: '../images/srh/hk.png',
+                name: 'Heinrich Klaasen',
+                role: 'Batsman',
+                country: 'South Africa',
+                age: 33
+            },
+            {
+                thumb: '../images/srh/nk.png',
+                name: 'Nitish Kumar Reddy',
+                role: 'All Rounder',
+                country: 'India',
+                age: 24
+            },
+            {
+                thumb: '../images/srh/ms.png',
+                name: 'Mohammed Shami',
+                role: 'Bowler',
+                country: 'India',
+                age: 34
+            },
+            {
+                thumb: '../images/srh/az.png',
+                name: 'Adam Zampa',
+                role: 'Bowler',
+                country: 'Australia',
+                age: 29
+            },
+            {
+                thumb: '../images/srh/rc.png',
+                name: 'Rahul Chahar',
+                role: 'Bowler',
+                country: 'India',
+                age: 28
+            },
+            {
+                thumb: '../images/srh/hp.png',
+                name: 'Harshal Patel',
+                role: 'Bowler',
+                country: 'India',
+                age: 31
+            },
+            {
+                thumb: '../images/srh/ju.png',
+                name: 'Jaydev Unadkat',
+                role: 'Bowler',
+                country: 'India',
+                age: 34
+            }
+        ]);
     }
 }
 
