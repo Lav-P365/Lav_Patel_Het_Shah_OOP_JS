@@ -36,3 +36,33 @@ teamImages.forEach(image => {
         }
     });
 });
+
+//  GSAP timeline
+const tl = gsap.timeline();
+
+tl.from('.logo img', {
+    opacity: 0,
+    scale: 5,  
+    z: -1000,  
+    duration: 2,  
+    ease: 'power3.out',
+    delay: 0.5,  
+    rotationX: 90,  
+    rotationY: 90,  
+})
+.from('.teams img', {
+    opacity: 0,
+    y: 50,  
+    scale: 1,
+    stagger: 0.2,  
+    duration: 1.5,
+    ease: 'power3.out',
+    delay: 0.1,  
+})
+.to('.background', {
+    scale: 1.1,  
+    duration: 5, 
+    ease: 'power3.inOut',
+    repeat: -1,  
+    yoyo: true,  
+});
