@@ -694,6 +694,32 @@ teamImages.forEach((image)=>{
         } else console.log('Team not found');
     });
 });
+//  GSAP timeline
+const tl = gsap.timeline();
+tl.from('.logo img', {
+    opacity: 0,
+    scale: 5,
+    z: -1000,
+    duration: 2,
+    ease: 'power3.out',
+    delay: 0.5,
+    rotationX: 90,
+    rotationY: 90
+}).from('.teams img', {
+    opacity: 0,
+    y: 50,
+    scale: 1,
+    stagger: 0.2,
+    duration: 1.5,
+    ease: 'power3.out',
+    delay: 0.1
+}).to('.background', {
+    scale: 1.1,
+    duration: 5,
+    ease: 'power3.inOut',
+    repeat: -1,
+    yoyo: true
+});
 
 },{"./cskTeam.js":"2P1b1","./kkrTeam.js":"bbsBT","./miTeam.js":"bbBQr","./rcbTeam.js":"7znpZ","./pbksTeam.js":"7NvmE","./dcTeam.js":"awUeN","./gtTeam.js":"ixFnz","./lsgTeam.js":"5CCCm","./rrTeam.js":"2WEnT","./srhTeam.js":"gV2DV"}],"2P1b1":[function(require,module,exports,__globalThis) {
 // cskTeam.js
